@@ -10,6 +10,21 @@
     --border-color: #2a273f;
 }
 
+body.light-mode {
+    --bg-color: #bab0cb;
+    --sidebar-bg: #d4c9db;
+    --card-bg: #f3e3fa;
+    --text-main: #4a4a5e;
+    --text-heading: #111118;
+    --accent-purple: #7c3aed; 
+    --accent-green: #16a34a;  
+    --border-color: #e5e7eb;
+}
+
+body, .sidebar, .card, .theme-toggle {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -85,9 +100,20 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     color: var(--text-main);
-    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--border-color);
+    color: var(--text-heading);
 }
 
 /* Hero Section */
@@ -173,3 +199,33 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     font-size: 0.8rem;
 }
 .status-badge { background: rgba(74, 222, 128, 0.1); color: var(--accent-green); }
+
+.skill-text { font-size: 0.9rem; line-height: 1.8; }
+
+/* Footer Links Styling */
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.footer-link {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-link i {
+    font-size: 1.2rem;
+}
+
+/* Hover Effects */
+.footer-link:hover {
+    color: var(--accent-purple);
+    transform: translateY(-2px); 
+}
