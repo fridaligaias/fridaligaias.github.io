@@ -32,17 +32,64 @@ body, .sidebar, .card, .theme-toggle {
     font-family: 'Inter', sans-serif;
 }
 
+/* Base Body Setup */
 body {
-    background: linear-gradient(135deg, #0d0b14, #1c1433, #0b1820);
-    background-attachment: fixed;
+    background-color: #0d0b14; 
     color: var(--text-main);
     display: flex;
     line-height: 1.6;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden; 
 }
 
+/* Light Mode Base */
 body.light-mode {
-    background: linear-gradient(135deg, #f4f5f7, #e0dcfc, #dcfce7);
+    background-color: #d3d0d5;
+}
+
+body::before, body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px); 
+    z-index: -1; 
+    animation: float 20s infinite alternate ease-in-out;
+}
+
+/* The Purple Orb */
+body::before {
+    background: rgba(162, 119, 255, 0.15); 
+    width: 60vw;
+    height: 60vw;
+    max-width: 600px;
+    max-height: 600px;
+    top: -10%;
+    left: -10%;
+}
+
+/* The Green Orb */
+body::after {
+    background: rgba(74, 222, 128, 0.12); 
+    width: 50vw;
+    height: 50vw;
+    max-width: 500px;
+    max-height: 500px;
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -10s; 
+}
+
+/* Light Mode Orb Colors */
+body.light-mode::before { background: rgb(195, 163, 255); }
+body.light-mode::after { background: rgba(22, 163, 74, 0.15); }
+
+/* The Drift Animation */
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(5vw, 5vh) scale(1.05); }
+    66% { transform: translate(-2vw, 8vh) scale(0.95); }
+    100% { transform: translate(-5vw, -2vh) scale(1); }
 }
 
 /* Typography */
@@ -169,11 +216,17 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
 }
 .btn-secondary {
     background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-main);
+    border: 1px solid var(--glass-border); 
+    transition: all 0.3s ease;
+    color: var(--text-main)
 }
-.btn-secondary:hover { background: var(--card-bg); }
-
+.btn-secondary:hover {
+    background:  var(--glass-bg);
+    color: var(--accent-purple); 
+    border-color: var(--accent-purple); 
+    text-shadow: 0 0 12px rgba(162, 119, 255, 0.8); 
+    transform: translateY(-2px);
+}
 /* Cards & Layouts */
 .card {
     background: var(--glass-bg);
