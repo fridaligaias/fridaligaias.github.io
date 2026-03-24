@@ -589,6 +589,8 @@ body.light-mode .empty-state {
         border-radius: 32px;
         z-index: 1000; 
     }
+
+    .logo, .logo-link { display: none; }
     
     .sidebar:hover {
         width: 90%; 
