@@ -277,6 +277,7 @@ h2 {
     font-weight: 600;
     font-size: 0.9rem;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -421,7 +422,7 @@ body.light-mode .blog-title-pill {
 }
 
 body.light-mode .empty-state {
-    color: #9ca3af; 
+    color: #565d6a; 
 }
 
 /* =========================================
@@ -557,9 +558,6 @@ body.light-mode .empty-state {
     pointer-events: auto;
 }
 
-body.light-mode .demo-modal {
-    box-shadow: 0 20px 40px rgba(31, 38, 135, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
 
 .close-modal {
     position: absolute;
@@ -577,8 +575,97 @@ body.light-mode .demo-modal {
     color: var(--accent-purple);
 }
 
-body.light-mode input, 
-body.light-mode textarea {
-    background: rgba(0, 0, 0, 0.05) !important;
-    color: #111118 !important;
+/* =========================================
+   LIGHT MODE FORM FIXES
+   ========================================= */
+
+body.light-mode .form-group input, 
+body.light-mode .form-group textarea, 
+body.light-mode .form-group select {
+    background: rgba(0, 0, 0, 0.03) !important; 
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #111118 !important; 
+}
+
+body.light-mode .form-group select option {
+    background: #ffffff; 
+    color: #111118;      
+}
+
+body.light-mode input::placeholder, 
+body.light-mode textarea::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode .form-group label {
+    color: var(--accent-purple);
+    font-weight: 700;
+}
+
+body.light-mode .btn-primary {
+    background: #111118;
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+
+body.light-mode .btn-primary:hover {
+    background: #000000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   CONTACT DESCRIPTION TEXT
+   ========================================= */
+.contact-description {
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-main); 
+}
+
+.contact-description strong {
+    color: var(--text-heading); 
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+body.light-mode .contact-description {
+    color: #4f4f55;
+}
+
+body.light-mode .contact-description strong {
+    color: #4f4f55; 
+}
+
+/* SUCCESS TOAST NOTIFICATION */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--accent-green); 
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: var(--text-heading);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast i {
+    color: var(--accent-green);
+    font-size: 1.2rem;
 }

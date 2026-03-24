@@ -54,4 +54,56 @@ document.addEventListener('DOMContentLoaded', () => {
             hideModal();
         }
     });
+
+    // =========================================
+    // CONTACT FORM AJAX SUBMISSION
+    // =========================================
+    const contactForm = document.getElementById('contactForm');
+    const successToast = document.getElementById('successToast');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    // SUCCESS: Show Toast
+                    successToast.classList.add('show');
+                    contactForm.reset(); // Clear the form
+                    // Hide toast after 4 seconds
+                    setTimeout(() => {
+                        successToast.classList.remove('show');
+                    }, 4000);
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Submission failed.");
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    }    
+
 });
