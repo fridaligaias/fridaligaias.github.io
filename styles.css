@@ -26,9 +26,6 @@ body.light-mode {
 /* =========================================
    BASE SETUP
    ========================================= */
-/* =========================================
-   BASE SETUP
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -524,13 +521,11 @@ body.light-mode .empty-state {
     font-size: 0.85rem;
 }
 
-/* The Sleek, Floating Modal Box */
 .demo-modal {
     position: fixed;
     top: 50%;
     left: 50%;
     
-    /* Starts slightly lower for the slide-up animation */
     transform: translate(-50%, -40%); 
     
     width: 90%;
@@ -539,32 +534,27 @@ body.light-mode .empty-state {
     padding: 24px;
     border-radius: 16px;
     
-    /* Reusing your premium glassmorphism */
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     
-    /* Hidden by default */
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* When active, it fades in and snaps to the true center */
 .demo-modal.show-modal {
     opacity: 1;
     transform: translate(-50%, -50%);
     pointer-events: auto;
 }
 
-/* Light Mode Overrides for the Modal */
 body.light-mode .demo-modal {
     box-shadow: 0 20px 40px rgba(31, 38, 135, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-/* The X close button */
 .close-modal {
     position: absolute;
     top: 16px;
