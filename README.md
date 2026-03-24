@@ -1,5 +1,5 @@
 # Fridalí Gaias — Personal Portfolio
-> **A curated showcase of engineering projects, technical research, and professional experience.**
+> **A curated showcase of my projects, research, and experience.**
 
 [![Live Site](https://img.shields.io/badge/View_Live_Portfolio-Purple?style=for-the-badge&logo=google-chrome&logoColor=white)](https://fridaligaias.github.io/)
 [![GitHub Stars](https://img.shields.io/github/stars/fridaligaias/fridaligaias.github.io?style=for-the-badge&color=4ade80)](https://github.com/fridaligaias/fridaligaias.github.io/stargazers)
