@@ -25,40 +25,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }); 
 
     // =========================================
-    // PROJECT GALLERY
+    // DEMO MODAL LOGIC
     // =========================================
-    const cards = document.querySelectorAll('.gallery-card');
-    const leftBtn = document.querySelector('.left-btn');
-    const rightBtn = document.querySelector('.right-btn');
-    let currentIndex = 0;
+    const demoBtns = document.querySelectorAll('.demo-btn');
+    const modal = document.getElementById('demoModal');
+    const modalText = document.getElementById('demoModalText');
+    const closeModal = document.querySelector('.close-modal');
 
-    function updateGallery() {
-        cards.forEach((card, index) => {
-            card.classList.remove('active', 'next', 'prev', 'hidden');
-
-            if (index === currentIndex) {
-                card.classList.add('active');
-            } else if (index === (currentIndex + 1) % cards.length) {
-                card.classList.add('next');
-            } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
-                card.classList.add('prev');
-            } else {
-                card.classList.add('hidden');
-            }
+    demoBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Stops the document click listener from firing immediately
+            const text = btn.getAttribute('data-demo-text');
+            modalText.textContent = text;
+            modal.classList.add('show-modal');
         });
+    });
+
+    const hideModal = () => {
+        modal.classList.remove('show-modal');
+    };
+
+    if (closeModal) {
+        closeModal.addEventListener('click', hideModal);
     }
 
-    if (cards.length > 0) {
-        rightBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % cards.length;
-            updateGallery();
-        });
-
-        leftBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-            updateGallery();
-        });
-
-        updateGallery();
-    }
+    document.addEventListener('click', (e) => {
+        if (modal && modal.classList.contains('show-modal') && !modal.contains(e.target)) {
+            hideModal();
+        }
+    });
 });
