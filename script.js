@@ -1,4 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // =========================================
+    // PARTICLES.JS CONFIGURATION 
+    // =========================================
+    if (document.getElementById('particles-js')) {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 150, 
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": {
+                    "value": "#a277ff" 
+                },
+                "shape": {
+                    "type": "circle",
+                },
+                "opacity": {
+                    "value": 0.4, 
+                    "random": false,
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#a277ff",
+                    "opacity": 0.1,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.7, 
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "window",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab" 
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push" 
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": { "opacity": 0.5 }
+                    },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
     // =========================================
     // THEME TOGGLE
     // =========================================
