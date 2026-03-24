@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 /* =========================================
    VARIABLES
    ========================================= */
@@ -9,7 +12,7 @@
     --glass-bg: rgba(26, 23, 38, 0.45); 
     --glass-border: rgba(255, 255, 255, 0.125);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1); 
-    --glass-blur: blur(16px) saturate(180%); 
+    --glass-blur: blur(8px) saturate(180%); 
 }
 
 body.light-mode {
@@ -20,7 +23,7 @@ body.light-mode {
     --glass-bg: rgba(255, 255, 255, 0.25); 
     --glass-border: rgba(255, 255, 255, 0.4);
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    --glass-blur: blur(16px) saturate(180%); 
+    --glass-blur: blur(8px) saturate(180%); 
 }
 
 /* =========================================
@@ -202,6 +205,18 @@ h2 {
     transition: margin 0.4s ease;
 }
 
+.logo-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo-link:hover .logo {
+    border-color: var(--accent-purple);
+    color: var(--text-heading);
+    transform: scale(1.05);
+}
+
 .sidebar:hover .logo {
     margin-left: 12px;
 }
@@ -298,29 +313,41 @@ h2 {
 }
 
 .btn-primary {
-    background: var(--text-heading);
-    color: #0d0b14;
-    border: 1px solid transparent; 
+    background: rgba(255, 255, 255, 0.15); 
+    color: var(--text-heading);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
     transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background: transparent;
-    color: var(--accent-green);
-    border-color: var(--accent-green);
-    box-shadow: 0 0 15px rgba(74, 222, 128, 0.5); 
+    background: rgba(255, 255, 255, 0.2); 
+    color: var(--text-heading);
+    
+    border-color: var(--accent-purple);
+    
+    box-shadow: -10px 0 25px rgba(162, 119, 255, 0.4), 
+                 10px 0 25px rgba(74, 222, 128, 0.4);
+                 
+    transform: translateY(-2px);
 }
-
 
 body.light-mode .btn-primary {
-    color: #ffffff; 
+    background: rgba(64, 97, 84, 0.838);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
 }
+
+
 
 .btn-secondary {
     background: transparent;
     border: 1px solid var(--glass-border); 
     transition: all 0.3s ease;
     color: var(--text-main);
+    backdrop-filter: blur(3px) saturate(180%);
+    -webkit-backdrop-filter: saturate(180%);
 }
 
 .btn-secondary:hover {
@@ -593,7 +620,7 @@ body.light-mode .empty-state {
 }
 
 /* =========================================
-   LIGHT MODE FORM FIXES
+   LIGHT MODE FORM 
    ========================================= */
 
 body.light-mode .form-group input, 
@@ -619,16 +646,7 @@ body.light-mode .form-group label {
     font-weight: 700;
 }
 
-body.light-mode .btn-primary {
-    background: #111118;
-    color: #ffffff;
-    border: 1px solid transparent;
-}
 
-body.light-mode .btn-primary:hover {
-    background: #000000;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
 
 /* =========================================
    CONTACT DESCRIPTION TEXT
