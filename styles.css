@@ -521,6 +521,12 @@ body.light-mode .empty-state {
     font-size: 0.85rem;
 }
 
+.project-actions .btn-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+}
+
 .demo-modal {
     position: fixed;
     top: 50%;
@@ -569,4 +575,10 @@ body.light-mode .demo-modal {
 
 .close-modal:hover {
     color: var(--accent-purple);
+}
+
+body.light-mode input, 
+body.light-mode textarea {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: #111118 !important;
 }
