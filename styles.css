@@ -104,11 +104,10 @@ body.light-mode::after { background: rgba(22, 163, 74, 0.15); }
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Keeps it behind your glass cards */
-    pointer-events: none; /* Ensures it doesn't block you from clicking buttons */
+    z-index: -1; 
+    pointer-events: none; 
 }
 
-/* Adjust your existing floating blobs to sit behind the particles */
 body::before, body::after {
     z-index: -2; 
 }
