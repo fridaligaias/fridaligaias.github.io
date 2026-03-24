@@ -144,8 +144,6 @@ h2 {
 .accent-purple { color: var(--accent-purple); }
 .accent-green { color: var(--accent-green); }
 
-.accent-purple { color: var(--accent-purple); }
-.accent-green { color: var(--accent-green); }
 
 /* =========================================
    LAYOUT & NAVIGATION
@@ -288,20 +286,45 @@ h2 {
 .tag {
     background: rgba(74, 222, 128, 0.1);
     color: var(--accent-green);
-    padding: 4px 12px;
+    padding: 6px 16px; 
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 1px;
+    width: fit-content; 
 }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin-bottom: 2rem;
+
+/* --- HERO SECTION STYLES --- */
+.hero {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: flex-start;
+    padding: 2rem 0;
+    gap: 2rem; 
 }
 
-.action-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+    max-width: 800px; 
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 1rem; 
+    align-items: center;
+}
+
 .btn {
     padding: 10px 20px;
     border-radius: 24px;
@@ -339,7 +362,27 @@ body.light-mode .btn-primary {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* --- SECTION SPACING (DESKTOP) --- */
+#experience,
+#projects,
+#skills,
+#recognition {
+    padding-top: 2rem;
+    padding-bottom: 4rem; 
+    margin-bottom: 2rem;  
+}
 
+/* --- MOBILE  --- */
+@media (max-width: 768px) {
+    #experience,
+    #projects,
+    #skills,
+    #recognition {
+        padding-top: 1.5rem;
+        padding-bottom: 2rem; 
+        margin-bottom: 1rem;  
+    }
+}
 
 .btn-secondary {
     background: transparent;
@@ -510,37 +553,66 @@ body.light-mode .empty-state {
         padding: 2rem 1.5rem 100px 1.5rem; 
     }
 
+    .hero {
+        min-height: auto; 
+        padding-top: 2rem; 
+        align-items: center; 
+        text-align: center;
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .action-buttons {
+        justify-content: center; 
+    }
+
+    .action-buttons .btn {
+        flex: 1 1 calc(50% - 1rem); 
+        min-width: 140px;
+        text-align: center;
+        justify-content: center;
+    }
+
     .sidebar {
         top: auto;
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
-        width: calc(100% - 40px);
-        height: 64px;
+        width: 90%; 
+        max-width: 400px; 
+        height: auto;
         flex-direction: row;
-        justify-content: space-around;
-        padding: 0 1rem;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
         border-radius: 32px;
+        z-index: 1000; 
     }
     
     .sidebar:hover {
-        width: calc(100% - 40px); 
+        width: 90%; 
         align-items: center;
     }
-    
-    .logo { display: none; }
-    
+        
     .nav-links {
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+        width: 100%;
     }
     
-    .nav-links a { margin-bottom: 0; padding: 10px; font-size: 1.3rem; }
+    .nav-links a { 
+        margin-bottom: 0; 
+        padding: 10px; 
+        font-size: 1.2rem; 
+        flex: 1; /* Distribute space evenly */
+        justify-content: center;
+    }
+    
     .nav-links span { display: none !important; }
     
     h1 { font-size: 2.5rem; }
-    .action-buttons { justify-content: flex-start; }
     
     .site-footer {
         flex-direction: column;
@@ -782,4 +854,3 @@ body.light-mode .tooltip-bubble::after {
     color: var(--accent-green);
     font-size: 1.2rem;
 }
-
