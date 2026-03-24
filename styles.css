@@ -1,13 +1,15 @@
+/* =========================================
+   VARIABLES
+   ========================================= */
 :root {
     --text-main: #a6accd;
     --text-heading: #ffffff;
     --accent-purple: #a277ff;
     --accent-green: #4ade80;
-    
-    --glass-bg: rgba(26, 23, 38, 0.4); 
+    --glass-bg: rgba(26, 23, 38, 0.55); 
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    --glass-blur: blur(12px);
+    --glass-blur: blur(225px);
 }
 
 body.light-mode {
@@ -15,16 +17,14 @@ body.light-mode {
     --text-heading: #111118;
     --accent-purple: #7c3aed; 
     --accent-green: #16a34a;  
-    
-    --glass-bg: rgba(255, 255, 255, 0.5);
-    --glass-border: rgba(255, 255, 255, 0.4); 
+    --glass-bg: rgba(255, 255, 255, 0.65); 
+    --glass-border: rgba(255, 255, 255, 0.4);
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
 
-body, .sidebar, .card, .theme-toggle {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
+/* =========================================
+   BASE SETUP
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +32,6 @@ body, .sidebar, .card, .theme-toggle {
     font-family: 'Inter', sans-serif;
 }
 
-/* Base Body Setup */
 body {
     background-color: #0d0b14; 
     color: var(--text-main);
@@ -43,11 +42,17 @@ body {
     overflow-x: hidden; 
 }
 
-/* Light Mode Base */
 body.light-mode {
     background-color: #d3d0d5;
 }
 
+body, .sidebar, .card, .theme-toggle {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* =========================================
+   BACKGROUND ANIMATION
+   ========================================= */
 body::before, body::after {
     content: '';
     position: fixed;
@@ -57,7 +62,6 @@ body::before, body::after {
     animation: float 20s infinite alternate ease-in-out;
 }
 
-/* The Purple Orb */
 body::before {
     background: rgba(162, 119, 255, 0.15); 
     width: 60vw;
@@ -68,7 +72,6 @@ body::before {
     left: -10%;
 }
 
-/* The Green Orb */
 body::after {
     background: rgba(74, 222, 128, 0.12); 
     width: 50vw;
@@ -80,11 +83,9 @@ body::after {
     animation-delay: -10s; 
 }
 
-/* Light Mode Orb Colors */
 body.light-mode::before { background: rgb(195, 163, 255); }
 body.light-mode::after { background: rgba(22, 163, 74, 0.15); }
 
-/* The Drift Animation */
 @keyframes float {
     0% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(5vw, 5vh) scale(1.05); }
@@ -92,14 +93,18 @@ body.light-mode::after { background: rgba(22, 163, 74, 0.15); }
     100% { transform: translate(-5vw, -2vh) scale(1); }
 }
 
-/* Typography */
+/* =========================================
+   TYPOGRAPHY
+   ========================================= */
 h1, h2, h3 { color: var(--text-heading); font-weight: 600; }
 h1 { font-size: 3.5rem; margin-bottom: 1rem; }
 h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
 .accent-purple { color: var(--accent-purple); }
 .accent-green { color: var(--accent-green); }
 
-/* Sidebar */
+/* =========================================
+   LAYOUT & NAVIGATION
+   ========================================= */
 .sidebar {
     width: 70px;
     height: 100vh;
@@ -118,7 +123,8 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
 .logo {
     width: 40px;
     height: 40px;
-    background: var(--card-bg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -126,6 +132,13 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     color: var(--accent-purple);
     font-weight: bold;
     margin-bottom: 3rem;
+}
+
+.nav-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nav-links a {
@@ -139,7 +152,6 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
 
 .nav-links a:hover { color: var(--text-heading); }
 
-/* Main Content Area */
 .content {
     margin-left: 70px;
     padding: 3rem 10%;
@@ -152,6 +164,9 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     justify-content: flex-end;
 }
 
+/* =========================================
+   COMPONENTS
+   ========================================= */
 .theme-toggle {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
@@ -170,11 +185,10 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
 }
 
 .theme-toggle:hover {
-    background: var(--border-color);
+    background: var(--glass-border);
     color: var(--text-heading);
 }
 
-/* Hero Section */
 .tag {
     background: rgba(74, 222, 128, 0.1);
     color: var(--accent-green);
@@ -191,8 +205,7 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     margin-bottom: 2rem;
 }
 
-/* Buttons */
-.action-buttons { display: flex; gap: 1rem; }
+.action-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn {
     padding: 10px 20px;
     border-radius: 24px;
@@ -201,9 +214,10 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     font-size: 0.9rem;
     transition: 0.3s;
 }
+
 .btn-primary {
     background: var(--text-heading);
-    color: var(--bg-color);
+    color: #0d0b14;
     border: 1px solid transparent; 
     transition: all 0.3s ease;
 }
@@ -214,20 +228,22 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     border-color: var(--accent-green);
     box-shadow: 0 0 15px rgba(74, 222, 128, 0.5); 
 }
+
 .btn-secondary {
     background: transparent;
     border: 1px solid var(--glass-border); 
     transition: all 0.3s ease;
-    color: var(--text-main)
+    color: var(--text-main);
 }
+
 .btn-secondary:hover {
-    background:  var(--glass-bg);
+    background: var(--glass-bg);
     color: var(--accent-purple); 
     border-color: var(--accent-purple); 
     text-shadow: 0 0 12px rgba(162, 119, 255, 0.8); 
     transform: translateY(-2px);
 }
-/* Cards & Layouts */
+
 .card {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
@@ -254,7 +270,7 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
 
 .grid-2-col {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
 
@@ -264,11 +280,10 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     gap: 2rem;
 }
 
-/* Pills & Badges */
 .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
 .pill {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--glass-border);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -280,21 +295,28 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     border-radius: 12px;
     font-size: 0.8rem;
 }
+
 .status-badge { background: rgba(74, 222, 128, 0.1); color: var(--accent-green); }
-
-.score {
-    color: var(--text-heading);
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
+.score { color: var(--text-heading); font-weight: 600; font-size: 0.9rem; }
 .skill-text { font-size: 0.9rem; line-height: 1.8; }
 
-/* Footer Links Styling */
+/* =========================================
+   FOOTER
+   ========================================= */
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--glass-border);
+}
+
 .footer-links {
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .footer-link {
@@ -308,12 +330,127 @@ h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.footer-link i {
-    font-size: 1.2rem;
+.footer-link i { font-size: 1.2rem; }
+.footer-link:hover { color: var(--accent-purple); transform: translateY(-2px); }
+
+/* =========================================
+   PROJECT GALLERY
+   ========================================= */
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 450px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
 }
 
-/* Hover Effects */
-.footer-link:hover {
+.gallery-track {
+    position: relative;
+    width: 100%;
+    max-width: 500px; 
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; 
+}
+
+.gallery-card {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease, z-index 0.6s ease;
+    margin-bottom: 0; 
+}
+
+.gallery-card.active { transform: translateX(0) scale(1); z-index: 3; opacity: 1; }
+.gallery-card.next { transform: translateX(30%) scale(0.85); z-index: 2; opacity: 0.4; cursor: pointer; }
+.gallery-card.prev { transform: translateX(-30%) scale(0.85); z-index: 2; opacity: 0.4; cursor: pointer; }
+.gallery-card.hidden { transform: translateX(0) scale(0.7); z-index: 1; opacity: 0; pointer-events: none; }
+
+.gallery-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.gallery-btn:hover {
     color: var(--accent-purple);
-    transform: translateY(-2px); 
+    text-shadow: 0 0 20px var(--accent-purple); 
+    transform: scale(1.1); 
+}
+
+.left-btn { position: absolute; left: 0; }
+.right-btn { position: absolute; right: 0; }
+
+/* =========================================
+   MOBILE OPTIMIZATIONS
+   ========================================= */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 70px;
+        bottom: 0;
+        top: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+        border-right: none;
+        border-top: 1px solid var(--glass-border);
+    }
+    
+    .logo { display: none; }
+    
+    .nav-links {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .nav-links a { margin-bottom: 0; font-size: 1.5rem; }
+    
+    .content {
+        margin-left: 0;
+        padding: 2rem 5%;
+        padding-bottom: 100px; 
+    }
+    
+    h1 { font-size: 2.5rem; }
+    .action-buttons { justify-content: center; }
+    
+    
+    .featured-desc {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 4; 
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .gallery-container { height: 500px; }
+    .left-btn { left: -10px; }
+    .right-btn { right: -10px; }
+    .gallery-track { max-width: 70%; }
+    .gallery-card { padding: 1.2rem; }
+    .gallery-card h3 { font-size: 1.1rem; }
+    .gallery-card p { font-size: 0.85rem; line-height: 1.4; }
+    .gallery-card.next { transform: translateX(20%) scale(0.9); opacity: 0.2; }
+    .gallery-card.prev { transform: translateX(-20%) scale(0.9); opacity: 0.2; }
+    
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-links { justify-content: center; }
 }
