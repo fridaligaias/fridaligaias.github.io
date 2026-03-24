@@ -26,11 +26,14 @@ body.light-mode {
 /* =========================================
    BASE SETUP
    ========================================= */
+/* =========================================
+   BASE SETUP
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif; 
 }
 
 body {
@@ -95,12 +98,35 @@ body.light-mode::after { background: rgba(22, 163, 74, 0.15); }
     100% { transform: translate(-5vw, -2vh) scale(1); }
 }
 
+
 /* =========================================
    TYPOGRAPHY
    ========================================= */
-h1, h2, h3 { color: var(--text-heading); font-weight: 600; }
-h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-h2 { font-size: 1.5rem; margin-bottom: 1.5rem; margin-top: 3rem;}
+h1, h2, h3 { 
+    color: var(--text-heading); 
+    font-weight: 600; 
+}
+h1 { 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: 4.8rem; 
+    margin-bottom: 1rem; 
+    
+    font-weight: 600;
+}
+h1 span {
+    font-family: inherit; 
+    font-style: inherit;
+}
+
+h2 { 
+    font-size: 1.5rem; 
+    margin-bottom: 1.5rem; 
+    margin-top: 3rem; 
+}
+
+.accent-purple { color: var(--accent-purple); }
+.accent-green { color: var(--accent-green); }
+
 .accent-purple { color: var(--accent-purple); }
 .accent-green { color: var(--accent-green); }
 
