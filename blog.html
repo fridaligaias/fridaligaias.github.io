@@ -20,7 +20,7 @@
 </head>
 <body>
     <div id="particles-js"></div>
-    <main class="content" style="margin-left: 0; max-width: 100%; height: 100vh; display: flex; flex-direction: column;">
+    <main class="content" style="margin-left: 0; max-width: 100%; min-height: 100vh; display: flex; flex-direction: column;">
         
         <div class="top-bar" style="justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;">
             <a href="index.html" class="btn btn-secondary" style="display: flex; align-items: center; gap: 0.5rem;">
@@ -29,15 +29,40 @@
             <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
         </div>
 
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-            <i class="fa-solid fa-pen-nib" style="font-size: 3rem; color: var(--accent-purple); margin-bottom: 1.5rem;"></i> 
-            <h1 style="margin-bottom: 1rem;">Blog</h1>
-            <p class="empty-state">Nothing's here yet!</p>
-        </div>
+        <section class="blog-page-hero">
+            <i class="fa-solid fa-pen-nib"></i> 
+            <h1>Blog</h1>
+            <p>Notes on AI, web engineering, research, privacy, product ideas, and the work I am building in public.</p>
+        </section>
+
+        <section class="blog-list-section">
+            <div id="blogPosts" class="blog-post-list" aria-live="polite">
+                <p class="empty-state">Loading posts...</p>
+            </div>
+        </section>
+
+        <footer class="site-footer page-footer">
+            <div class="footer-info">
+                <h4>Fridalí Gaias</h4>
+                <p>&copy; 2026 Fridalí Gaias. Software Engineer.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/fridaligaias" target="_blank" class="footer-link">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/fridaligaias/" target="_blank" class="footer-link">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:fridalig638@gmail.com" class="footer-link">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+            </div>
+        </footer>
         
     </main>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
         
     <script src="script.js"></script>
+    <script src="blog.js"></script>
 </body>
 </html>

@@ -36,21 +36,25 @@
             <h1 style="margin-bottom: 0.5rem;">Get in Touch</h1>
 
             <p class="contact-description" style="text-align: center; margin-bottom: 3rem; padding: 0 1rem;">
-                    I am currently open to 
-                    
-                    <span class="tooltip-trigger" tabindex="0">
-                        <strong>freelance projects</strong>
-                        <span class="tooltip-bubble">
-                            <strong>Services include:</strong> Design & Development guidance and/or implementation, UX/UI design, and custom websites: including professional portfolios, product showcases, and project pages for any field. <br> Not sure? Feel free to reach out with your idea and we can discuss how I can help bring it to life!
-                        </span>
-                    </span>
-                    , <strong>full-time career opportunities</strong>, and <strong>research positions</strong>. 
-                    <br><br>
-                    Please select the appropriate enquiry type below so I can prioritize your request. I aim to respond to all professional inquiries within 48 hours.
+                I am currently open to freelance projects, full-time career opportunities, and research positions.
+                <br><br>
+                Please select the appropriate enquiry type below so I can prioritize your request. I aim to respond to all professional inquiries within 48 hours.
             </p>    
+
+            <div class="contact-service-grid">
+                <span>Custom websites & portfolios</span>
+                <span>UX/UI design</span>
+                <span>Frontend development</span>
+                <span>AI-integrated web prototypes</span>
+                <span>Research & technical collaborations</span>
+                <span>Startup landing pages & pitch sites</span>
+                <span>Interactive project showcases</span>
+                <span>Technical/product consulting for early-stage ideas</span>
+                <span class="idea-pill" aria-label="Your idea"></span>
+            </div>
                     
             
-            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="card" style="width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 1.2rem;">
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="card contact-form-card">
                 
                 <input type="hidden" name="access_key" value="27eac730-d32b-4c2f-850e-2ec4299456f6">
                 
@@ -68,23 +72,78 @@
 
                 <div class="form-group">
                     <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--accent-purple);">Enquiry Type</label>
-                    <select name="enquiry_type" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: #1a1a2e; color: var(--text-heading); font-family: 'DM Sans', sans-serif; cursor: pointer;">
+                    <label class="checkbox-row enquiry-checkbox">
+                        <input type="checkbox" id="generalEnquiryToggle" name="general_enquiry" value="Yes">
+                        <span>General enquiry</span>
+                    </label>
+                    <select id="enquiryTypeSelect" name="enquiry_type" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: #1a1a2e; color: var(--text-heading); font-family: 'DM Sans', sans-serif; cursor: pointer;">
                         <option value="" disabled selected>Select an option...</option>
-                        <option value="Freelance Project">Freelance / Contract Project</option>
-                        <option value="Full-time Opportunity">Full-time Opportunity</option>
+                        <option value="Freelance Website or Portfolio">Freelance Website / Portfolio</option>
+                        <option value="UX/UI Design">UX/UI Design</option>
+                        <option value="AI or Web Prototype">AI or Web Prototype</option>
                         <option value="Research Collaboration">Research Collaboration</option>
-                        <option value="General Inquiry">General Enquiry</option>
+                        <option value="Speaking, Event or Networking">Speaking / Event / Networking</option>
+                        <option value="Full-time Employment Opportunity">Full-time Employment Opportunity</option>
                     </select>
                 </div>
 
+                <div id="projectFields" class="project-fields">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--accent-purple);">Timeline</label>
+                            <select name="timeline" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: #1a1a2e; color: var(--text-heading); font-family: 'DM Sans', sans-serif; cursor: pointer;">
+                                <option value="" selected>Not sure yet</option>
+                                <option value="ASAP">ASAP</option>
+                                <option value="Within 1 month">Within 1 month</option>
+                                <option value="1-3 months">1-3 months</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--accent-purple);">Budget</label>
+                            <select name="budget" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: #1a1a2e; color: var(--text-heading); font-family: 'DM Sans', sans-serif; cursor: pointer;">
+                                <option value="" selected>Not sure yet</option>
+                                <option value="Small project">Small project</option>
+                                <option value="Medium project">Medium project</option>
+                                <option value="Grant-funded or startup budget">Grant-funded / startup budget</option>
+                                <option value="Recruitment or salaried role">Recruitment / salaried role</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--accent-purple);">Project / Organisation</label>
+                        <input type="text" name="project_or_organisation" placeholder="Optional" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: var(--text-heading); font-family: 'DM Sans', sans-serif;">
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--accent-purple);">Message</label>
-                    <textarea name="message" rows="5" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: var(--text-heading); resize: none; font-family: 'DM Sans', sans-serif;"></textarea>
+                    <label id="messageLabel" style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--accent-purple);">Tell me about the project</label>
+                    <textarea name="message" rows="5" required placeholder="What are you hoping to build, improve, design, or discuss?" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: var(--text-heading); resize: none; font-family: 'DM Sans', sans-serif;"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">Send Message</button>
             </form>
         </div>
+
+        <footer class="site-footer page-footer">
+            <div class="footer-info">
+                <h4>Fridalí Gaias</h4>
+                <p>&copy; 2026 Fridalí Gaias. Software Engineer.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/fridaligaias" target="_blank" class="footer-link">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/fridaligaias/" target="_blank" class="footer-link">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:fridalig638@gmail.com" class="footer-link">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+            </div>
+        </footer>
     </main>
 
     <div id="successToast" class="toast">

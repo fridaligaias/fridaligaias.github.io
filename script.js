@@ -96,14 +96,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     const demoBtns = document.querySelectorAll('.demo-btn');
     const modal = document.getElementById('demoModal');
+    const modalTitle = document.getElementById('demoModalTitle');
     const modalText = document.getElementById('demoModalText');
+    const modalLink = document.getElementById('demoModalLink');
     const closeModal = document.querySelector('.close-modal');
 
     demoBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation(); // Stops the document click listener from firing immediately
+            const title = btn.getAttribute('data-demo-title') || 'Demo Information';
             const text = btn.getAttribute('data-demo-text');
+            const link = btn.getAttribute('data-demo-link');
+            const linkLabel = btn.getAttribute('data-demo-link-label') || 'Open Link';
+            if (modalTitle) {
+                modalTitle.textContent = title;
+            }
             modalText.textContent = text;
+            if (modalLink) {
+                if (link) {
+                    modalLink.href = link;
+                    modalLink.querySelector('span').textContent = linkLabel;
+                    modalLink.classList.add('show-link');
+                } else {
+                    modalLink.removeAttribute('href');
+                    modalLink.classList.remove('show-link');
+                }
+            }
             modal.classList.add('show-modal');
         });
     });
@@ -121,6 +139,48 @@ document.addEventListener('DOMContentLoaded', () => {
             hideModal();
         }
     });
+
+    // =========================================
+    // CONTACT FORM MODE
+    // =========================================
+    const generalEnquiryToggle = document.getElementById('generalEnquiryToggle');
+    const projectFields = document.getElementById('projectFields');
+    const messageLabel = document.getElementById('messageLabel');
+    const enquiryType = document.querySelector('select[name="enquiry_type"]');
+
+    const updateContactFormMode = () => {
+        if (!generalEnquiryToggle || !projectFields || !messageLabel) {
+            return;
+        }
+
+        const isGeneral = generalEnquiryToggle.checked;
+        const enquiryValue = enquiryType ? enquiryType.value : '';
+        const hidesProjectFields = isGeneral ||
+            enquiryValue === 'Full-time Employment Opportunity' ||
+            enquiryValue === 'Speaking, Event or Networking';
+
+        if (enquiryType) {
+            enquiryType.classList.toggle('is-hidden', isGeneral);
+            enquiryType.disabled = isGeneral;
+            enquiryType.required = !isGeneral;
+            if (isGeneral) {
+                enquiryType.value = '';
+            }
+        }
+        projectFields.classList.toggle('is-hidden', hidesProjectFields);
+        projectFields.querySelectorAll('input, select, textarea').forEach(field => {
+            field.disabled = hidesProjectFields;
+        });
+        messageLabel.textContent = hidesProjectFields ? 'Share your thoughts' : 'Tell me about the project';
+    };
+
+    if (generalEnquiryToggle) {
+        generalEnquiryToggle.addEventListener('change', updateContactFormMode);
+        if (enquiryType) {
+            enquiryType.addEventListener('change', updateContactFormMode);
+        }
+        updateContactFormMode();
+    }
 
     // =========================================
     // CONTACT FORM AJAX SUBMISSION
