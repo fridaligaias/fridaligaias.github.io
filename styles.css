@@ -780,6 +780,17 @@ body.light-mode .current-item {
     align-self: start;
 }
 
+.recognition-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.recognition-card-grid .recognition-card {
+    margin-bottom: 0;
+}
+
 .recognition-card ul {
     padding-left: 1.1rem;
     margin: 1rem 0;
@@ -818,6 +829,7 @@ body.light-mode .current-item {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
+    align-items: start;
 }
 
 .certification-card {
@@ -1144,7 +1156,8 @@ body.light-mode .blog-article .blog-lede {
 
     .grid-2-col,
     .grid-3-col,
-    .service-grid {
+    .service-grid,
+    .recognition-card-grid {
         grid-template-columns: 1fr;
     }
 
