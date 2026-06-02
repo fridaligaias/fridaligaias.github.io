@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MLNX3SPZB"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7MLNX3SPZB');
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231a1726' stroke='%23ffffff' stroke-opacity='0.2' stroke-width='4'/><text x='50' y='54' font-family='system-ui, sans-serif' font-weight='bold' font-size='45' fill='%23a277ff' text-anchor='middle' dominant-baseline='middle'>FG</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect - Fridalí Gaias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <main class="connect-page">
+        <div class="connect-top-bar">
+            <a href="index.html" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-left"></i> Portfolio
+            </a>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+
+        <section class="connect-shell">
+            <h1>Scan & Connect</h1>
+
+            <div class="qr-switcher" role="tablist" aria-label="Choose a QR code">
+                <button class="qr-switch is-active" type="button" role="tab" aria-selected="true" aria-controls="linkedin-qr" data-qr-target="linkedin-qr">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </button>
+                <button class="qr-switch" type="button" role="tab" aria-selected="false" aria-controls="portfolio-qr" data-qr-target="portfolio-qr">
+                    <i class="fa-solid fa-globe"></i> Portfolio
+                </button>
+            </div>
+
+            <div class="qr-stage">
+                <article class="qr-panel is-active" id="linkedin-qr" role="tabpanel">
+                    <div class="qr-image-shell">
+                        <img src="IMG_0585.jpeg" alt="QR code for Fridalí Gaias on LinkedIn">
+                    </div>
+                    <a href="https://www.linkedin.com/in/fridaligaias/" target="_blank" class="qr-direct-link">Open LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </article>
+
+                <article class="qr-panel" id="portfolio-qr" role="tabpanel" hidden>
+                    <div class="qr-image-shell">
+                        <img src="adobe-express-qr-code.png" alt="QR code for the Fridalí Gaias portfolio website">
+                    </div>
+                    <a href="https://fridaligaias.github.io/" target="_blank" class="qr-direct-link">Open portfolio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="connect.js"></script>
+</body>
+</html>
