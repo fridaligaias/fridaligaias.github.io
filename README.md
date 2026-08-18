@@ -6,9 +6,9 @@
 
 
 ## Overview
-This repository hosts my personal portfolio: a centralized space designed to demonstrate my approach to problem-solving and software architecture. 
+This repository hosts my personal portfolio: a centralized space designed to demonstrate my approach to problem-solving, software architecture, and applied engineering.
 
-The site provides a comprehensive look at my professional experience, technical skills, and academic background, milestones and research.
+The site provides a comprehensive look at my professional experience, technical skills, academic background, milestones, and research.
 
 ---
 
@@ -24,19 +24,21 @@ For a full breakdown of the technologies used and the specific outcomes of these
 
 ---
 
-## 💼 Professional Opportunities
-I am currently **actively exploring new professional challenges** and am open to discussions regarding:
+## 💼 Professional Direction
+I am starting as a **Graduate Software Engineer at [Dexory](https://www.dexory.com/) in Wallingford in September 2026**, joining the core technology team through a rotating graduate programme focused on software for real-world robotics systems.
 
-* **Freelance & Contract Projects:** Custom web solutions, professional portfolios, and product showcases.
-* **Full-Time Roles:** Opportunities within innovative teams where I can contribute to high-impact projects.
-* **Research Roles**: Academic or industrial research positions focused on the intersection of autonomous systems, adversarial & secure AI deployment.
+Alongside this, I continue to develop selected side projects and technical collaborations across:
+
+* **AI & Robotics:** Applied machine learning, intelligent systems, and robotics-adjacent software.
+* **Full-Stack Web:** Product prototypes, portfolios, and project showcases with strong UX foundations.
+* **Research & Social Impact:** Secure AI, educational systems, privacy-focused platforms, and Tech4Good work.
 
 I pride myself on delivering clean, scalable code and maintaining a high standard for user experience and system security.
 
 ---
 
 ## 📬 Let's Connect
-Whether you are looking to hire for a specific project or discussing a potential career opportunity, I would love to hear from you.
+Whether you are interested in my work, research, side projects, or technical collaborations, I would love to hear from you.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/fridaligaias)
 [![Contact Form](https://img.shields.io/badge/Contact_Me-Purple?style=for-the-badge&logo=maildotru&logoColor=white)](https://fridaligaias.github.io/contact.html)

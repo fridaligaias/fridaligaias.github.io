@@ -141,6 +141,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
+    // IMAGE LIGHTBOX
+    // =========================================
+    let imageLightbox = document.getElementById('imageLightbox');
+    if (!imageLightbox) {
+        imageLightbox = document.createElement('div');
+        imageLightbox.id = 'imageLightbox';
+        imageLightbox.className = 'image-lightbox';
+        imageLightbox.setAttribute('aria-hidden', 'true');
+        imageLightbox.innerHTML = `
+            <button class="image-lightbox-close" type="button" aria-label="Close image preview"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="" id="imageLightboxImg">
+        `;
+        document.body.appendChild(imageLightbox);
+    }
+
+    const imageLightboxImg = document.getElementById('imageLightboxImg');
+    const imageLightboxClose = document.querySelector('.image-lightbox-close');
+    const imagePreviewButtons = document.querySelectorAll('.certification-badge-button');
+    const zoomableImages = document.querySelectorAll('main img:not(#imageLightboxImg)');
+
+    const showImageLightbox = (src, alt = '') => {
+        if (!imageLightbox || !imageLightboxImg || !src) {
+            return;
+        }
+        imageLightboxImg.src = src;
+        imageLightboxImg.alt = alt;
+        imageLightbox.classList.add('show-lightbox');
+        imageLightbox.setAttribute('aria-hidden', 'false');
+    };
+
+    const hideImageLightbox = () => {
+        if (!imageLightbox || !imageLightboxImg) {
+            return;
+        }
+        imageLightbox.classList.remove('show-lightbox');
+        imageLightbox.setAttribute('aria-hidden', 'true');
+        imageLightboxImg.removeAttribute('src');
+        imageLightboxImg.alt = '';
+    };
+
+    imagePreviewButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImageLightbox(button.dataset.imageSrc, button.dataset.imageAlt);
+        });
+    });
+
+    zoomableImages.forEach(image => {
+        image.classList.add('zoomable-image');
+        if (!image.closest('button, a')) {
+            image.setAttribute('tabindex', '0');
+            image.setAttribute('role', 'button');
+        }
+        image.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImageLightbox(image.currentSrc || image.src, image.alt);
+        });
+        image.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                showImageLightbox(image.currentSrc || image.src, image.alt);
+            }
+        });
+    });
+
+    if (imageLightboxClose) {
+        imageLightboxClose.addEventListener('click', hideImageLightbox);
+    }
+
+    if (imageLightbox) {
+        imageLightbox.addEventListener('click', (e) => {
+            if (e.target === imageLightbox) {
+                hideImageLightbox();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            hideImageLightbox();
+        }
+    });
+
+    // =========================================
     // CONTACT FORM MODE
     // =========================================
     const generalEnquiryToggle = document.getElementById('generalEnquiryToggle');

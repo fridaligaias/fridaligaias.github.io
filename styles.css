@@ -430,6 +430,75 @@ body.light-mode .btn-primary {
     min-width: 0;
 }
 
+.dexory-card {
+    position: relative;
+    border-color: rgba(74, 222, 128, 0.55);
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.11), rgba(26, 23, 38, 0.58) 46%, rgba(162, 119, 255, 0.09));
+    box-shadow: var(--glass-shadow), 0 0 0 1px rgba(74, 222, 128, 0.16), 0 0 34px rgba(74, 222, 128, 0.2);
+    overflow: hidden;
+}
+
+.dexory-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(74, 222, 128, 0.42), transparent 34%, rgba(162, 119, 255, 0.28) 68%, rgba(74, 222, 128, 0.24));
+    opacity: 0.32;
+}
+
+.dexory-card:hover {
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(74, 222, 128, 0.45), 0 0 42px rgba(74, 222, 128, 0.3);
+}
+
+.dexory-link {
+    color: var(--accent-green);
+    font-weight: 800;
+    text-decoration: none;
+    text-shadow: 0 0 14px rgba(74, 222, 128, 0.45);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.dexory-link:hover,
+.dexory-link:focus-visible {
+    color: var(--text-heading);
+    text-shadow: 0 0 18px rgba(74, 222, 128, 0.85);
+    outline: none;
+}
+
+body.light-mode .dexory-card {
+    background: linear-gradient(135deg, rgba(22, 163, 74, 0.13), rgba(255, 255, 255, 0.72) 45%, rgba(124, 58, 237, 0.08));
+    border-color: rgba(22, 163, 74, 0.5);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12), 0 0 0 1px rgba(22, 163, 74, 0.18), 0 0 28px rgba(22, 163, 74, 0.18);
+}
+
+body.light-mode .dexory-card::before {
+    background: linear-gradient(120deg, rgba(22, 163, 74, 0.25), transparent 34%, rgba(124, 58, 237, 0.18) 68%, rgba(22, 163, 74, 0.16));
+    opacity: 0.28;
+}
+
+body.light-mode .dexory-card:hover {
+    box-shadow: 0 12px 34px rgba(31, 38, 135, 0.16), 0 0 0 1px rgba(22, 163, 74, 0.42), 0 0 34px rgba(22, 163, 74, 0.22);
+}
+
+body.light-mode .dexory-link {
+    color: #12813b;
+    text-shadow: none;
+}
+
+body.light-mode .dexory-link:hover,
+body.light-mode .dexory-link:focus-visible {
+    color: #0b5f2a;
+    text-shadow: 0 0 12px rgba(22, 163, 74, 0.28);
+}
+
+body.light-mode .dexory-card .date-badge {
+    background: rgba(22, 163, 74, 0.12);
+    color: #0b5f2a;
+    border: 1px solid rgba(22, 163, 74, 0.24);
+}
+
 .featured-card {
     background: rgba(26, 23, 38, 0.7);
 }
@@ -836,12 +905,119 @@ body.light-mode .current-item {
     margin-bottom: 0;
 }
 
+.certification-card-featured {
+    border-color: var(--glass-border);
+}
+
 .certification-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
     margin-bottom: 1.2rem;
+}
+
+.certification-featured-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: start;
+}
+
+.certification-badge-button {
+    display: block;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.certification-badge-image {
+    display: block;
+    width: 72px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.certification-badge-button:hover .certification-badge-image,
+.certification-badge-button:focus-visible .certification-badge-image {
+    opacity: 0.9;
+    transform: scale(1.04);
+}
+
+.certification-badge-button:focus-visible {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+.zoomable-image {
+    cursor: zoom-in;
+}
+
+.zoomable-image:focus-visible {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 4px;
+}
+
+.certification-link {
+    margin-top: 0.25rem;
+}
+
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(10, 8, 16, 0.78);
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.image-lightbox.show-lightbox {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.image-lightbox img {
+    display: block;
+    width: min(86vw, 460px);
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.48);
+}
+
+.image-lightbox-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    background: rgba(15, 12, 24, 0.82);
+    color: var(--text-heading);
+    cursor: pointer;
+}
+
+body.light-mode .image-lightbox {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+body.light-mode .image-lightbox-close {
+    background: rgba(255, 255, 255, 0.9);
+    color: #111118;
 }
 
 /* =========================================
@@ -1487,6 +1663,16 @@ body.light-mode .contact-description strong {
 
     .contact-service-grid {
         justify-content: flex-start;
+    }
+}
+
+@media (max-width: 420px) {
+    .certification-featured-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .certification-badge-button {
+        justify-self: start;
     }
 }
 
